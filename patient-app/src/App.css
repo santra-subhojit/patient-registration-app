@@ -1,7 +1,28 @@
+:root {
+  --max-width: 1280px;
+  --padding: 2rem;
+  --primary-color: #007acc;
+  --primary-hover: #005fa3;
+  --border-radius: 0.5rem;
+  --transition-fast: 200ms ease-in-out;
+  --bg-tone: #f5f5f5;
+  --card-bg: #fff;
+  --text-muted: #888;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg-tone);
+  color: #333;
+  line-height: 1.5;
+}
+
 #root {
-  max-width: 1280px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--padding);
   text-align: center;
 }
 
@@ -9,7 +30,7 @@
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter var(--transition-fast);
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -33,10 +54,89 @@
   }
 }
 
+/* Card container for form and lists */
 .card {
-  padding: 2em;
+  background: var(--card-bg);
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
+/* Form styling */
+form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-fast);
+}
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+form button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+form button:hover {
+  background: var(--primary-hover);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+th {
+  background: #fafafa;
+  font-weight: 600;
+}
+tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* Search input */
+#searchInput {
+  width: 50%;
+  max-width: 300px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-fast);
+}
+#searchInput:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Muted text */
 .read-the-docs {
-  color: #888;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
